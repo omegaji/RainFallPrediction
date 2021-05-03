@@ -1,10 +1,101 @@
 <html>
-    <head><title>Vellore RainFall Dashboard and Forecast by Om</title></head>
+    <head><title>Vellore RainFall Dashboard and Forecast by Om</title>
+    <link rel="stylesheet" href="/static/css/mycss.css">
+    </head>
 
-    <body>
-        <script src="/static/js/d3.min.js"></script>
-        <script> var TheData= "{{ url_for('getData') }}"</script>
-        <script src="/static/js/index.js"></script>
+    <body class="rain-bkg">
+
+        <div>Icons made by <a href="https://www.flaticon.com/authors/smalllikeart" title="smalllikeart">smalllikeart</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+        <div>Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+    <div class="tab1">
+    <div class="small-flex">
+    <img  src="/static/images/rainy.svg" alt="">
+    <div id="forecastOutput">? mm</div>
+    </div>
+        <form class="form-flex"name="singleform" onsubmit="LoadData();return false" method="POST">
+
+        <input type="date" placeholder="Input Date"id="DateInput">
+            
+
+        <select id="DistrictInput">
+            <option value=0>ACS Mill</option>
+            <option value=1>Alangayam</option>
+            <option value=2>Ambur</option>
+            <option value=3>Arakkonam</option>
+            <option value=4>Arcot</option>
+            <option value=5>Gudiyatham</option>
+            <option value=6>Katpadi</option>
+            <option value=7>Kaveripakkam</option>
+            <option value=8>Melalathur</option>
+            <option value=9>Natrampalli</option>
+            <option value=10>Ponnai</option>
+            <option value=11>Sholingur</option>
+            <option value=12>TCS Mill</option>
+            <option value=13>Tirupattur</option>
+            <option value=14>VCS Mill</option>
+            <option value=15>Vaniyambadi</option>
+            <option value=16>Vellore</option>
+            <option value=17>Wallajah</option>
+
+            <!-- /*
+            'District_ACS Mill',
+       'District_Alangayam', 'District_Ambur', 'District_Arakkonam',
+       'District_Arcot', 'District_Gudiyatham', 'District_Katpadi',
+       'District_Kaveripakkam', 'District_Melalathur', 'District_Natrampalli',
+       'District_Ponnai', 'District_Sholingur', 'District_TCS Mill',
+       'District_Tirupattur', 'District_VCS Mill', 'District_Vaniyambadi',
+       'District_Vellore', 'District_Wallajah']
+            */ -->
+          </select>
+        <button id="DateSubmit" >submit</button>
+
+    </form>
+    </div> 
+    <div class="tab2">
+        <div class="row">
+            <div>
+            <select name="" id="graph_district">
+                <option value=0>ACS Mill</option>
+            <option value=1>Alangayam</option>
+            <option value=2>Ambur</option>
+            <option value=3>Arakkonam</option>
+            <option value=4>Arcot</option>
+            <option value=5>Gudiyatham</option>
+            <option value=6>Katpadi</option>
+            <option value=7>Kaveripakkam</option>
+            <option value=8>Melalathur</option>
+            <option value=9>Natrampalli</option>
+            <option value=10>Ponnai</option>
+            <option value=11>Sholingur</option>
+            <option value=12>TCS Mill</option>
+            <option value=13>Tirupattur</option>
+            <option value=14>VCS Mill</option>
+            <option value=15>Vaniyambadi</option>
+            <option value=16>Vellore</option>
+            <option value=17>Wallajah</option>
+            </select>
+
+            <select name="" id="graph_year">
+                <option value=2010>2010</option>
+            <option value=2011>2011</option>
+            <option value=2012>2012</option>
+            <option value=2013>2013</option>
+            <option value=2014>2014</option>
+            <option value=2015>2015</option>
+            <option value=2016>2016</option>
+            <option value=2017>2017</option>
+            <option value=2018>2018</option>
+            <option value=2019>2019</option>
+            
+            </select>
+        </div>
+            <svg height=300 width=300 id="BasicGraph"></svg>  
+        </div>
+    </div>
+    <script src="/static/js/jquery-1.8.3.min.js"></script>
+    <script src="/static/js/semantic.js"></script>
+    <script src="/static/js/d3.min.js"></script>
+    <script src="/static/js/index.js"></script>
     </body>
 
 </html>
