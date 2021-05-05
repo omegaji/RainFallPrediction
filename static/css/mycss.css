@@ -1,28 +1,159 @@
+body{
+}
+#fimg{
+    opacity: 1;
+}
+.fadeout{
+    opacity: 0;
+    transition: opacity 2s;
+}
+.sun{
+    animation-name: spin;
+  animation-duration: 5000ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear; 
+}
 
+@keyframes spin {
+    from {
+        transform:rotate(0deg);
+    }
+    to {
+        transform:rotate(360deg);
+    }
+}
+.fadein{
+    opacity: 1;
+    transition: opacity 2s;
+}
+a{
+    text-decoration: none;
+
+}
+.tabvisible{
+display: block;
+}
+.tabinvisible{
+    display: none !important;
+   
+}
+.Navbar{
+position:absolute;
+top:30%;
+/* width: 190px; */
+height: 150px    ;
+}
+.graph-icon{
+    padding:10px;
+    position: relative;
+    left:-114px;
+    width: 130px;
+    margin-top:10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items:flex-start;
+    border-radius: 4px;
+    background-color: wheat;   
+    transition: left 1s;
+
+    
+
+}
+
+
+.graph-icon:hover{
+   left: -15px;
+   transition: left 1s;
+}
+
+.graph-icon>span{
+    width: 125px;
+    font-family: 'Segoe UI';
+}
+
+
+
+.wand-icon{
+    padding:10px;
+    position: relative;
+    width: 130px;
+    left:-114px;
+    margin-top:10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items:flex-start;
+    border-radius: 4px;
+    background-color: wheat;   
+    transition: left 1s;
+
+    
+
+}
+
+.wand-icon:hover{
+   left: -15px;
+   transition: left 1s;
+}
+
+.wand-icon>span{
+    font-family: 'Segoe UI';
+    width: 125px;
+}
+
+
+.tab1{
+    transition: display 4 ease;
+}
 .tab2{
     display: flex;
     flex-direction: column;
     width: 80%;
-    
+    margin-left: 0%;
+    transition: display 4 ease;
 }
+
 .row{
     display:flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    margin-left: 30%;
 }
 .row>div{
     display: flex;
     flex-direction: column; 
 }
-.row>div>select{
+.row>.rowsvg{
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+}
+.rowsvg>label{
+    padding:2px;
+    width: 44%;
+    box-shadow: cornflowerblue 2px 2px 2px 2px;
+    margin-bottom: 28px;
+    margin-left:70px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size:10px;
+    border-radius: 4px;
+    border-width: 1.2px;
+    background-color: cornflowerblue;
+    border-style:  outset;
+}
+.row>div>select,.row>div>button{
+    
     margin-top: 8px;
     padding: 5px;
-    font-family: monospace;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 10px;
     border-radius: 20px;
     border:solid rgb(27, 20, 20) 2px;
 }
+
+
 .small-flex{
 
     display: flex;
@@ -33,6 +164,7 @@
     top:25%;
     height: 30%;
     width: 20%;
+    
 }
 .rain-bkg{
     background-color: #03d3fc;
@@ -40,9 +172,12 @@
 .sun-bkg{
     background-color: coral;
 }
+.white-bkg{
+    background-color: cornsilk;
+}
 .small-flex>img,.small-flex>div{
     font-size: 4vw;
-    font-family: monospace;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
     width: 70%;
 }
@@ -61,7 +196,7 @@
 .form-flex>option{
     z-index:2;
 
-    font-family: monospace;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 40px;
 }
 .form-flex>input,.form-flex>select{
@@ -70,12 +205,12 @@
     left:0%;
     margin-top: 20px;
     padding: 10px;
-    font-family: monospace;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 30px;
     border-radius: 20px;
     border:solid rgb(27, 20, 20) 2px;
 }
-.change_img{
+/* .change_img{
     width: 30%;
     flex-direction: row;
-    }
+    } */

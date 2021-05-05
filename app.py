@@ -8,6 +8,9 @@ from some_funcs import *
 app = Flask(__name__)
 app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
 modelobj=Forecast()
+
+graph=Visualize()
+graph.MonthlyRain(2010, "Arcot")
 Districts=["ACS Mill","Alangayam","Ambur",
             "Arakkonam",
             "Arcot",
@@ -41,7 +44,44 @@ def getData():
         modelobj.CreateNForecast()
     else:
         to_send=float(modelobj.forecast)
-    #GetYMD(date_val)
     return jsonify(to_send)
+@app.route("/GraphYearlyMonthly",methods = ['POST','GET'])
+def graph_yearly_monthly():
+    if request.method=="POST":
+        jsdata=request.json
+        graph.MonthlyRain(int(jsdata["year"]),jsdata["dis"])
+        return jsonify("")
+    if request.method=="GET":
+        
+        return jsonify(graph.df_grouped.to_json(orient="split"))
+
+@app.route("/GraphDistrictYearly",methods = ['POST','GET'])
+def graph_district_yearly():
+    if request.method=="POST":
+        jsdata=request.json
+        graph.DistrictRain(jsdata["dis"])
+        return jsonify("")
+    if request.method=="GET":
+        
+        return jsonify(graph.df_grouped.to_json(orient="split"))
+
+@app.route("/GraphSumYearly",methods = ['POST','GET'])
+def graph_sum_yearly():
+    if request.method=="POST":
+        jsdata=request.json
+        graph.SumMonthlyRain(int(jsdata["year"]), jsdata["dis"])
+        return jsonify("")
+    if request.method=="GET":
+        return jsonify(graph.df_grouped.to_json(orient="split"))
+
+@app.route("/GraphSumDistrict",methods = ['POST','GET'])
+def graph_sum_district():
+    if request.method=="POST":
+        jsdata=request.json
+        graph.SumDistrictRain(jsdata["dis"])
+        return jsonify("")
+    if request.method=="GET":
+        
+        return jsonify(graph.df_grouped.to_json(orient="split"))
 if __name__ == '__main__':
         app.run(debug=True)

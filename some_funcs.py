@@ -59,5 +59,25 @@ class Forecast():
         if self.forecast<0.18:
             self.forecast=0
 
-            
+class Visualize():
+    def __init__(self):
+        self.district=""
+        self.year=0
+        self.month=0
+        self.day=0
+        self.df=pd.read_csv("static/DataNotebooks/converted.csv")
+    def MonthlyRain(self,year,district):
+        self.df_grouped=self.df.groupby(["District","year","month"]).mean().reset_index()
+        self.df_grouped=self.df_grouped[(self.df_grouped["year"]==year)&(self.df_grouped["District"]==district)]
+    def DistrictRain(self,district):
+        self.df_grouped=self.df.groupby(["District","year"]).mean().reset_index()
+        self.df_grouped=self.df_grouped[(self.df_grouped["District"]==district)]
+    def SumMonthlyRain(self,year,district):
+        self.df_grouped=self.df.groupby(["District","year","month"]).sum().reset_index()
+        self.df_grouped=self.df_grouped[(self.df_grouped["year"]==year)&(self.df_grouped["District"]==district)]
+
+    def SumDistrictRain(self,district):
+        self.df_grouped=self.df.groupby(["District","year"]).sum().reset_index()
+        self.df_grouped=self.df_grouped[(self.df_grouped["District"]==district)]
+
         
