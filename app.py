@@ -11,6 +11,9 @@ modelobj=Forecast()
 
 graph=Visualize()
 graph.MonthlyRain(2010, "Arcot")
+graph.DistrictRain("Arcot")
+graph.SumDistrictRain("Arcot")
+graph.SumMonthlyRain(2010, "Arcot")
 Districts=["ACS Mill","Alangayam","Ambur",
             "Arakkonam",
             "Arcot",
@@ -37,8 +40,6 @@ def getData():
     to_send=""
     if request.method=="POST":
         jsdata=request.json
-        print(int(jsdata["dis"]))
-        print(Districts[int(jsdata["dis"])])
         modelobj.GetYMD(jsdata["date"], Districts[int(jsdata["dis"])],int(jsdata["dis"]))
         modelobj.GetSparse()
         modelobj.CreateNForecast()
@@ -63,7 +64,7 @@ def graph_district_yearly():
         return jsonify("")
     if request.method=="GET":
         
-        return jsonify(graph.df_grouped.to_json(orient="split"))
+        return jsonify(graph.df_grouped2.to_json(orient="split"))
 
 @app.route("/GraphSumYearly",methods = ['POST','GET'])
 def graph_sum_yearly():
@@ -72,7 +73,7 @@ def graph_sum_yearly():
         graph.SumMonthlyRain(int(jsdata["year"]), jsdata["dis"])
         return jsonify("")
     if request.method=="GET":
-        return jsonify(graph.df_grouped.to_json(orient="split"))
+        return jsonify(graph.df_grouped3.to_json(orient="split"))
 
 @app.route("/GraphSumDistrict",methods = ['POST','GET'])
 def graph_sum_district():
@@ -82,6 +83,6 @@ def graph_sum_district():
         return jsonify("")
     if request.method=="GET":
         
-        return jsonify(graph.df_grouped.to_json(orient="split"))
+        return jsonify(graph.df_grouped4.to_json(orient="split"))
 if __name__ == '__main__':
         app.run(debug=True)

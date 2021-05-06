@@ -286,24 +286,65 @@ $("#graph_4_submit").on("click",()=>{
 $(".wand-icon").on("click",()=>{
   console.log("its clicked  ")
 
-  $(".tab1").toggleClass("tabinvisible")
-  $(".tab2").toggleClass("tabinvisible")
-  $(".tab1").toggleClass("tabvisible")
+  $(".tab2").addClass("tabinvisible")
+  $(".tab3").addClass("tabinvisible")
+  
+  $(".tab1").removeClass("tabinvisible")
+  $(".tab1").addClass("tabvisible")
 
 })
 
 $(".graph-icon").on("click",()=>{
   console.log("its clicked  ")
 
-  $(".tab1").toggleClass("tabinvisible")
-  $(".tab2").toggleClass("tabinvisible")
+  $(".tab1").addClass("tabinvisible")
+  $(".tab3").addClass("tabinvisible")
 
- $(".tab2").toggleClass("tabvisible")
+  $(".tab2").removeClass("tabinvisible")
+
+  $(".tab2").addClass("tabvisible")
+
+  
+
 })
 
+
+$(".notebook-icon").on("click",()=>{
+  console.log("its clicked  ")
+
+ 
+  $(".tab1").addClass("tabinvisible")
+  $(".tab2").addClass("tabinvisible")
+
+  $(".tab3").removeClass("tabinvisible")
+
+  $(".tab3").addClass("tabvisible")
+})
+// #################################################### Default selections for the viz tab
 d3.json("/GraphYearlyMonthly").then((d)=>{
   console.log(JSON.parse(d))
 
   PlotYearly(JSON.parse(d).data)
+  
+})
+
+d3.json("/GraphDistrictYearly").then((d)=>{
+  console.log(JSON.parse(d))
+
+  PlotDistrictYearly(JSON.parse(d).data)
+  
+})
+
+d3.json("/GraphSumYearly").then((d)=>{
+  console.log(JSON.parse(d))
+
+  PlotYearly3(JSON.parse(d).data)
+  
+})
+
+d3.json("/GraphSumDistrict").then((d)=>{
+  console.log(JSON.parse(d))
+
+  PlotDistrictYearly4(JSON.parse(d).data)
   
 })

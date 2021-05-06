@@ -1,5 +1,7 @@
-<html>
+<html >
     <head><title>Vellore RainFall Dashboard and Forecast by Om</title>
+        <meta charset=“UTF-8”>
+
     <link rel="stylesheet" href="/static/css/mycss.css">
     <link
     rel="stylesheet"
@@ -9,26 +11,26 @@
 
     <body class="white-bkg">
 
-        <div>Icons made by <a href="https://www.flaticon.com/authors/smalllikeart" title="smalllikeart">smalllikeart</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
-        <div>Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
-        Icon by <a href="https://freeicons.io/profile/723">DotFix</a> on <a href="https://freeicons.io">freeicons.io</a>
-        Icon by <a href="https://freeicons.io/profile/3">freeicons</a> on <a href="https://freeicons.io">freeicons.io</a>
-        Icon by <a href="https://freeicons.io/profile/3335">visuallanguage</a> on <a href="https://freeicons.io">freeicons.io</a>
+        <div class="attribute">
+             Attribution &#x1F64C; :
+            Icons made by <a href="https://www.flaticon.com/authors/smalllikeart" title="smalllikeart">smalllikeart</a> , <a href="https://www.freepik.com" title="Freepik">Freepik </a>from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> & <a href="https://freeicons.io/profile/723">DotFix</a> , <a href="https://freeicons.io/profile/3">freeicons</a>, <a href="https://freeicons.io/profile/3335">visuallanguage </a>on <a href="https://freeicons.io">freeicons.io</a></div>
+      
     
     <div class="Navbar">
-        <div  class="graph-icon">
         
-            <span >Visualizations</span>  <img  id="graph_img"src="/static/images/graph.png"  width="30px" height="30px"alt="">
-    </div>
    
    <div  class="wand-icon">
       <span >Forecast</span>  <img  id="forecast_img"src="/static/images/wand.png"  width="30px" height="30px"alt="">
 </div>
+<div  class="graph-icon">
+        
+    <span >Visualizations</span>  <img  id="graph_img"src="/static/images/graph.png"  width="30px" height="30px"alt="">
+</div>
 
-<a href="https://www.w3schools.com/cssref/css3_pr_flex-shrink.asp"><div  class="wand-icon">
+<div  class="notebook-icon">
         
     <span >Home</span>  <img  id="notebook_img"src="/static/images/notebook.png"  width="30px" height="30px"alt="">
-</div></a>
+</div>
     </div>
     <div class="tab1">
     <div class="small-flex">
@@ -62,7 +64,7 @@
 
           
           </select>
-        <button id="DateSubmit" >submit</button>
+        <button id="DateSubmit"  class="buttonclass">submit</button>
 
     </form>
     </div> 
@@ -103,7 +105,7 @@
             <option value=2019>2019</option>
             
             </select>
-            <button id="graph_1_submit">submit</button>
+            <button class="buttonclass" id="graph_1_submit">submit</button>
         </div>
         <div class="rowsvg">
         <svg height=300 width=300 id="BasicGraph"></svg>
@@ -117,7 +119,7 @@
     <option value=1>Alangayam</option>
     <option value=2>Ambur</option>
     <option value=3>Arakkonam</option>
-    <option value=4>Arcot</option>
+    <option value=4 selected>Arcot</option>
     <option value=5>Gudiyatham</option>
     <option value=6>Katpadi</option>
     <option value=7>Kaveripakkam</option>
@@ -134,7 +136,7 @@
     </select>
 
     
-    <button id="graph_2_submit">submit</button>
+    <button class="buttonclass" id="graph_2_submit">submit</button>
 </div>
 <div class="rowsvg">
     <svg height=300 width=300 id="Graph2"></svg>  
@@ -149,7 +151,7 @@
                 <option value=1>Alangayam</option>
                 <option value=2>Ambur</option>
                 <option value=3>Arakkonam</option>
-                <option value=4>Arcot</option>
+                <option value=4 selected>Arcot</option>
                 <option value=5>Gudiyatham</option>
                 <option value=6>Katpadi</option>
                 <option value=7>Kaveripakkam</option>
@@ -181,7 +183,7 @@
 
 
 
-                <button id="graph_3_submit">submit</button>
+                <button class="buttonclass" id="graph_3_submit">submit</button>
 
             </div>
             <div class="rowsvg">
@@ -194,7 +196,7 @@
                 <option value=1>Alangayam</option>
                 <option value=2>Ambur</option>
                 <option value=3>Arakkonam</option>
-                <option value=4>Arcot</option>
+                <option value=4 selected>Arcot</option>
                 <option value=5>Gudiyatham</option>
                 <option value=6>Katpadi</option>
                 <option value=7>Kaveripakkam</option>
@@ -211,7 +213,7 @@
                 </select>
             
                 
-                <button id="graph_4_submit">submit</button>
+                <button class="buttonclass" id="graph_4_submit">submit</button>
             </div>
             <div class="rowsvg">
                 <svg height=300 width=300 id="Graph4"></svg> 
@@ -219,10 +221,50 @@
             </div>
         </div>
     </div>
+    <div class="tab3 tabinvisible">
+        <div class="column">
+            <div>
+            <h2>Which algorithms I tested?</h2>
+            <div class="label-flex">
+            <span>LSTM</span><span> Xgboost</span> <span>Arima</span><span>Regression</span><span>Exponential smoothening</span><span>SVM</span>
+        </div>
+        </div>
+            <div><p>I started with ARIMA and Exponential smoothening. However I did not get a good accuracy with these old models as the time series data is sparse and has more stochastic component than deterministic component. LSTM also failed as our sparse data resulted in very small prediction values. Finally after applying regression techniques &#x1F525; XGBoost &#x1F525;gave the best result</p></div>
+        </div>
+
+
+        <div class="column">
+            <div>
+            <h2>How can you apply regression on time series?</h2>
+            <div class="label-flex">
+            <span>Feature Engineering</span><span> Pattern Finding</span> <span>One-Hot Encoding</span> <span>8 lags</span>
+        </div>
+        </div>
+            <div><p> Knowing time seires are autocorrelated, I took the particular day of the month and went back in time(8 times) to that particular day and got the value. Example: 8th August 2019, 8th August 2018.. and so on to 8 lags! Moreover I applied OH-Encoding to the district column to use a single model for forecast!</p></div>
+        </div>
+
+        <div class="column">
+            <div>
+            <h2>Technologies used in project?</h2>
+            <div class="label-flex">
+            <span>Flask</span><span> Keras</span> <span>d3.js</span>  <span>pandas</span>
+            <span>Numpy</span> <span>Scikit-Learn</span> <span>HTML</span> <span>CSS</span> <span> JS</span>
+        </div>
+        </div>
+            <div><p> I love Data Science and Web Development! Hence I was able to work on this project in both the backend and frontend. It was an awesome experience learning new technologies and my frontend is always improving! Do follow me on linkedin! <a href="https://www.linkedin.com/in/om-purohit-957187175/">here</a></p></div>
+        </div>
+    </div>
     <script src="/static/js/jquery-1.8.3.min.js"></script>
     <script src="/static/js/semantic.js"></script>
     <script src="/static/js/d3.min.js"></script>
     <script src="/static/js/index.js"></script>
+
+
+    <footer><p>
+        
+        This website was &#x26A1; by om
+    
+   </footer>
     </body>
 
 </html>

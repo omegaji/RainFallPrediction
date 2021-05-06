@@ -67,17 +67,18 @@ class Visualize():
         self.day=0
         self.df=pd.read_csv("static/DataNotebooks/converted.csv")
     def MonthlyRain(self,year,district):
+        print(district)
         self.df_grouped=self.df.groupby(["District","year","month"]).mean().reset_index()
         self.df_grouped=self.df_grouped[(self.df_grouped["year"]==year)&(self.df_grouped["District"]==district)]
     def DistrictRain(self,district):
-        self.df_grouped=self.df.groupby(["District","year"]).mean().reset_index()
-        self.df_grouped=self.df_grouped[(self.df_grouped["District"]==district)]
+        self.df_grouped2=self.df.groupby(["District","year"]).mean().reset_index()
+        self.df_grouped2=self.df_grouped2[(self.df_grouped2["District"]==district)]
     def SumMonthlyRain(self,year,district):
-        self.df_grouped=self.df.groupby(["District","year","month"]).sum().reset_index()
-        self.df_grouped=self.df_grouped[(self.df_grouped["year"]==year)&(self.df_grouped["District"]==district)]
+        self.df_grouped3=self.df.groupby(["District","year","month"]).sum().reset_index()
+        self.df_grouped3=self.df_grouped3[(self.df_grouped3["year"]==year)&(self.df_grouped3["District"]==district)]
 
     def SumDistrictRain(self,district):
-        self.df_grouped=self.df.groupby(["District","year"]).sum().reset_index()
-        self.df_grouped=self.df_grouped[(self.df_grouped["District"]==district)]
+        self.df_grouped4=self.df.groupby(["District","year"]).sum().reset_index()
+        self.df_grouped4=self.df_grouped4[(self.df_grouped4["District"]==district)]
 
         
