@@ -85,4 +85,4 @@ def graph_sum_district():
         
         return jsonify(graph.df_grouped4.to_json(orient="split"))
 if __name__ == '__main__':
-        app.run(debug=True)
+        app.run(debug=True,port=5000)
